@@ -1,0 +1,35 @@
+﻿@model Number
+
+
+<div class=" d-flex justify-content-center align-content-center flex-column ">
+
+	<form method="post" asp-action="Calculatore" class="shadow-lg rounded-3 col-4 p-5 mt-5 ">
+
+    <h3 class="text-center text-primary mb-4">Calculatore</h3>
+	
+ <div class="row g-3 d-flex flex-sm-column flex-md-row ">
+          <div class="col-5 col-sm-5">
+            <input type="text" class="form-control" asp-for=One placeholder="Number One" >
+          </div>
+          <div class="col-5 col-sm-5">
+            <input type="text" class="form-control" asp-for=Two placeholder="Number One" >
+          </div>
+  </div>
+
+  <div>
+      <input type="submit" value="Calc" class="btn btn-primary mt-3" />
+  </div>
+
+</form>
+
+    <div class="shadow-lg rounded mt-5  col-4 p-5 text-primary">
+        
+            <h5 class="text-center text-primary mb-4">Result</h5>
+            <p>Sum : @ViewBag.sum </p>
+            <p>sub : @ViewBag.sub </p>
+            <p>div : @ViewBag.div </p>
+            <p>mul : @ViewBag.mul </p>
+    </div>
+
+
+</div>
