@@ -72,6 +72,26 @@ namespace Exercise_One.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Reverse()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Reverse(Person person)
+        {
+            var reverseName = string.Empty;
+
+            for (int i = person.Name.Length - 1; i >= 0; i--)
+            {
+                reverseName += person.Name[i];
+            }
+            ViewBag.reverseName = reverseName;
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
