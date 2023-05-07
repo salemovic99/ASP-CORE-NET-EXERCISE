@@ -13,11 +13,10 @@ namespace Exercise_One.Controllers
         {
             usersList = new List<User>()
             {
-                new User() { FirstName = "omer", LastName = "ali", Email = "o@o.com", Address = "nice Street", City = "london" },
-                new User() { FirstName = "ali", LastName = "osama", Email = "o@o.com", Address = "bad Street", City = "paris" },
+                new User() { Id = 1, FirstName = "omer", LastName = "ali", Email = "o@o.com", Address = "nice Street", City = "london" },
+                new User() { Id = 2,FirstName = "ali", LastName = "osama", Email = "o@o.com", Address = "bad Street", City = "paris" },
             };
         }
-
 
 
        
@@ -27,31 +26,31 @@ namespace Exercise_One.Controllers
             return View();
         }
 
+
         public IActionResult Users()
         {
-
-            return View(usersList);
+            
+            return View(this.usersList);
         }
 
         [HttpGet]
-        public IActionResult Regester()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Regester(User user)
+        public IActionResult Create(User user)
         {
-            User user1 = new User()
-            {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Email = user.Email,
-                Address = user.Address,
-                City = user.City,
-            };
-            usersList.Add(user1);
-            return RedirectToAction("Users");
+
+            //ViewBag.firstName = user.FirstName;
+            //ViewBag.lastName = user.LastName;
+            //ViewBag.email = user.Email;
+            //ViewBag.address = user.Address;
+            //ViewBag.city = user.City;
+           
+            this.usersList.Add(user);
+            return RedirectToAction(nameof(Users));
         }
 
         [HttpGet]
@@ -63,14 +62,25 @@ namespace Exercise_One.Controllers
         [HttpPost]
         public IActionResult Calculatore(Number number)
         {
-            ViewBag.sum = number.One + number.Two;
-            ViewBag.sub = number.One - number.Two;
-            ViewBag.div = number.Two != 0 ?  number.One / number.Two : -1 ;
-            ViewBag.mul = number.One * number.Two;
-
-
+            ViewBag.Result = getResult(number);
+            
             return View();
         }
+
+
+
+        public float getResult(Number number)
+        {
+            switch (number.Operation)
+            {
+                case '+': return number.One + number.Two;
+                case '-': return number.One - number.Two;
+                case '*': return number.One * number.Two;
+                case '/': return number.Two != 0 ? number.One / number.Two : -1;
+                default: return -1;
+            }
+        }
+
 
         [HttpGet]
         public IActionResult Reverse()

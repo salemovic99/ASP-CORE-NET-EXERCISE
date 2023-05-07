@@ -1,9 +1,9 @@
 ﻿@model Number
 
 
-<div class=" d-flex justify-content-center align-content-center flex-column ">
+<div class="container d-flex justify-content-center align-items-center flex-column ">
 
-	<form method="post" asp-action="Calculatore" class="shadow-lg rounded-3 col-4 p-5 mt-5 ">
+	<form method="post" asp-action="Calculatore" class="col-10 col-md-6 shadow-lg rounded-3 col-4 p-5 mt-5 ">
 
     <h3 class="text-center text-primary mb-4">Calculatore</h3>
 	
@@ -14,6 +14,9 @@
           <div class="col-5 col-sm-5">
             <input type="text" class="form-control" asp-for=Two placeholder="Number One" >
           </div>
+          <div class="col-5 col-sm-5">
+            <input type="text" class="form-control" asp-for=Operation placeholder="Operation" >
+          </div>
   </div>
 
   <div>
@@ -22,13 +25,10 @@
 
 </form>
 
-    <div class="shadow-lg rounded mt-5  col-4 p-5 text-primary">
+    <div class="col-10 col-md-6 shadow-lg rounded mt-5  col-4 p-5 text-primary">
         
             <h5 class="text-center text-primary mb-4">Result</h5>
-            <p>Sum : @ViewBag.sum </p>
-            <p>sub : @ViewBag.sub </p>
-            <p>div : @ViewBag.div </p>
-            <p>mul : @ViewBag.mul </p>
+            <p class=" text-center">@ViewBag.Result</p>
     </div>
 
 

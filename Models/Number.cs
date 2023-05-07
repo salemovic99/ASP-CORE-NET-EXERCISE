@@ -4,6 +4,7 @@
     {
         public int One { get; set; }
         public int Two { get; set; }
+        public char Operation { get; set; }
 
     }
 }
