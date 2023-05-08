@@ -1,3 +1,4 @@
 # Exercise_One
-# Exercise_Two
-# Exercise_Three
+## Q 1
+## Q2
+##Q3
